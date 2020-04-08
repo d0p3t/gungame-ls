@@ -87,10 +87,6 @@ body {
     height: 100%;
 }
 
-.card-info {
-    /* text-align: center !important; */
-}
-
 .card-footer {
     position: absolute;
     bottom: 0;
@@ -138,14 +134,14 @@ a:visited {
   font-weight: bold;
   text-shadow: -1px 0 rgba(92, 92, 92, 0.267), 0 1px rgba(92, 92, 92, 0.267),
     1px 0 rgba(92, 92, 92, 0.267), 0 -1px rgba(92, 92, 92, 0.267);
-  width: 100%;
-  height: 20px;
+  /* width: 100%;
+  height: 20px; */
 
   margin-left: 2px;
   margin-right: 3px;
 
-  margin-top: 5px;
-  margin-bottom: 12px;
+  /* margin-top: 5px;
+  margin-bottom: 12px; */
 
   padding: 5px;
   text-align: center;
@@ -207,6 +203,7 @@ a:visited {
     transparent
   );
   -webkit-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
 
   display: none;
 
