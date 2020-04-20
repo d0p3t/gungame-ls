@@ -11,6 +11,7 @@ files {
 	-- 'assets/music.mp3',
 	'img/background.jpg',
 	'img/outfit.png',
+	'js/loa.js',
     -- 'js/controls.js',
 	'js/main.js'
 }
