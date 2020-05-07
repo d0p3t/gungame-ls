@@ -175,13 +175,28 @@ Array.prototype.last = function () {
   return this[this.length - 1];
 };
 
+function setChangeLog(changelog) {
+  const table = document.getElementById("changelog");
+  changelog.forEach(update => {
+    var newNode = document.createElement("LI");
+    var text = document.createTextNode(update);
+    newNode.appendChild(text);
+    table.appendChild(newNode);
+  });
+}
+
+setTimeout(() => {
+  fetch("https://d0p3t.nl/temp/changelog.json")
+  .then((res) => res.json())
+  .then((out) => setChangeLog(out))
+  .catch((err) => printLog(1, "Could not load changelog"));
+}, 0)
 const handlers = {
   startInitFunction(data) {
     gstate.elems.push({
       name: data.type,
       orders: [],
     });
-
     printLog(1, String.format("Running {0} init functions", data.type));
     if (data.type) doProgress(data.type);
   },
