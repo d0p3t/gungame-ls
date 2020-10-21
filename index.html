@@ -5,19 +5,33 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="background"></div>
+    <div id="background">
+      <!-- <audio id="player" loop>
+        <source src="assets/numb_numb_juice.mp3" type="audio/mp3" />
+      </audio> -->
+    </div>
+    <div id="header">
+      <div id="header-text" class="color-fourth">
+        <h1>Welcome to Gun Game V!</h1>
+        <h4 style="margin-block-start: 0em; margin-block-end: 0em;">
+          <a href="https://beta.gungame.store">https://beta.gungame.store</a>
+        </h4>
+        <!-- <span id="music-toggle" class="color-fifth"
+          >Press [SPACE] to <span id="audio-text">Play</span> Music</span
+        > -->
+      </div>
+    </div>
     <div id="logo">
-      <div></div>
-      <div class="text" id="spawningin" style="opacity: 0; display: none;">
+      <div class="text" id="spawningin" style="opacity: 0; display: none">
         <div class="card">
           <h2 class="color-fourth card-title">
             Welcome, <span id="loadingname"></span>
           </h2>
-          <div class="color-fourth card-content" style="text-align: center;">
+          <div class="color-fourth card-content" style="text-align: center">
             <p>
               We are spawning you in. This can take some time depending on your
               computer specs, but it should take
-              <b style="color: red;">no longer than 15 seconds</b>. We want to
+              <b style="color: red">no longer than 15 seconds</b>. We want to
               make sure you have the best experience on Gun Game and therefore
               load everything necessary for a smooth transition into your first
               spawn.
@@ -26,17 +40,19 @@
               <div></div>
               <div></div>
             </div>
-            <p><b>Status:</b> <span id="loadingstatus"></span></p>
+            <p>
+              <b>Status:</b> <span id="loadingstatus">Getting ready...</span>
+            </p>
             <p><b>Elapsed Time:</b> <span id="elapsedloading">00:00</span></p>
           </div>
           <div class="card-footer color-fourth">
-            <h4 style="text-align: center;">
+            <h4 style="text-align: center">
               Experiencing issues loading in?<br />Let us know at
               <a href="https://discord.gg/r5q7MHQ"
                 >https://discord.gg/r5q7MHQ</a
               >
             </h4>
-            <span style="font-size: 10px;"
+            <span style="font-size: 10px"
               >(Allow up to 1 min for everything to load)</span
             >
           </div>
@@ -52,9 +68,9 @@
         <div class="card">
           <h2 class="color-fourth card-title">Information</h2>
           <div class="color-fourth card-content card-info">
-            <div>
+            <div id="info">
               <img
-                style="float: left; margin: 0px 10px 10px 0px;"
+                style="float: left; margin: 0px 10px 10px 0px"
                 src="../img/outfit.png"
                 width="100"
               />
@@ -66,25 +82,16 @@
                 Gain XP to rank up and gain access to a new outfit to show off
                 your rank.
               </p>
-              <!-- <p>We depend on community donations. Better server hardware + regional servers + more slots = better gameplay!</p> -->
-              <p>
-                Without your support, the community would not be able to thrive.
-                If you choose to support Gun Game, we are able to cover our
-                monthly server expenses and licensing costs. As the community
-                grows, we will continue to upgrade existing and deploy new
-                regional servers.
-              </p>
             </div>
           </div>
           <div class="card-footer color-fourth">
-            <h4 style="text-align: center;">
-              Want to support us and get exclusive bonuses as a reward?<br />Donate
-              at
-              <a href="https://donorbox.org/gun-game"
-                >https://donorbox.org/gun-game</a
+            <h4 style="text-align: center; margin-bottom: 4px" id="donate">
+              Get quick Ranks, exclusive Outfits, and more<br />Visit at
+              <a href="https://beta.gungame.store"
+                >https://beta.gungame.store</a
               >
             </h4>
-            <span style="font-size: 10px;"
+            <span style="font-size: 10px"
               >(Donations are optional. All donations are non-refundable)</span
             >
           </div>
@@ -95,14 +102,14 @@
       <div id="debug" class="log log-top-right"></div>
       <div class="loading-container" id="labels">
         <div class="loading-labels">
-          <div id="INIT_BEFORE_MAP_LOADED-label" class="color-first">
+          <div id="INIT_BEFORE_MAP_LOADED-label" class="color-first label">
             Purchasing Weapons
           </div>
-          <div id="MAP-label" class="color-second">Unpacking Crates</div>
-          <div id="INIT_AFTER_MAP_LOADED-label" class="color-third">
+          <div id="MAP-label" class="color-second label">Unpacking Crates</div>
+          <div id="INIT_AFTER_MAP_LOADED-label" class="color-third label">
             Polishing Weapons
           </div>
-          <div id="INIT_SESSION-label" class="color-fourth">
+          <div id="INIT_SESSION-label" class="color-fourth label">
             Unlock and Loaded!
           </div>
         </div>
@@ -123,5 +130,4 @@
   </body>
   <script src="js/loa.js"></script>
   <script src="js/main.js"></script>
-  <!-- <script src="js/controls.js"></script> -->
 </html>

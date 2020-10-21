@@ -1,36 +1,52 @@
+@font-face {
+  font-family: "LucidaSans";
+  src: url("../assets/LucidaSansRegular.ttf") format("truetype");
+}
+
 body {
   margin: 0px;
   padding: 0px;
 
-  background-size: 20%;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
-  font-family: "Segoe UI", sans-serif;
-
+  font-family: "LucidaSans", serif;
   cursor: none;
 }
 
-/*@font-face {
-    font-family: 'CustomFont';
-    src: url('customfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #91896e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #837b63;
+}
 
 #background {
   width: 100%;
   height: 100%;
   background-color: #2b1d2c;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../img/background.jpg);
+    url(../img/background2.jpg);
   background-size: cover;
   filter: blur(5px);
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   transform: scale(1.03);
   transition: all 20s linear;
   background-position: 0px 0px;
@@ -40,8 +56,6 @@ body {
 #logo {
   width: 100%;
   height: 100%;
-  /* background-image: url(../img/worldevents-logo.png); */
-  /* background-size: 15%; */
   background-position: center;
   background-repeat: no-repeat;
   position: fixed;
@@ -64,17 +78,51 @@ body {
   text-align: center;
 }
 
+#header {
+  position: absolute;
+  z-index: 100 !important;
+  text-align: center;
+  top: 10%;
+  width:100%;
+}
+
+#header-text {
+  height: 10vh;
+  text-align: center;
+  background-color: #1a1a1a;
+  box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 2px;
+}
+
+#header-text h1 {
+  margin-bottom: 5px;
+}
+
+#music-toggle {
+  position: absolute;
+  font-size: 12px;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .card {
     position: relative;
     margin-left: 2px;
     margin-right: 3px;
     width: 30%;
-    height: 40%;
+    height: 50%;
     border-radius: 3px;
     color: white;
     box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
     background-color: #1a1a1a;
     transition: 0.3s;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .card-title {
@@ -84,7 +132,7 @@ body {
 .card-content {
     text-align: left;
     margin: 10px;
-    height: 100%;
+    height: 80%;
 }
 
 .card-footer {
@@ -156,11 +204,11 @@ a:visited {
   font-size: 20px;
   position: relative;
 
-  /*text-shadow:
-    -1px -1px 1px #000,
-    1px -1px 1px #000,
-    -1px 1px 1px #000,
-    1px 1px 1px #000;  */
+  text-shadow:
+    -1px -1px 1px rgba(0, 0, 0, 0.164),
+    1px -1px 1px rgba(0, 0, 0, 0.164),
+    -1px 1px 1px rgba(0, 0, 0, 0.164),
+    1px 1px 1px rgba(0, 0, 0, 0.164); 
 }
 
 .loading-bar-container {
@@ -243,6 +291,10 @@ a:visited {
   color: #c9c7af;
 }
 
+.color-fifth {
+  color: pink;
+}
+
 @keyframes animate-stripes {
   0% {
     background-position: 0 0;
@@ -284,4 +336,62 @@ a:visited {
     height: 72px;
     opacity: 0;
   }
+}
+
+ul#changelog li {
+  margin: 5px 0;
+}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1201px) {
+  ul#changelog {
+    font-size: 1.55vmin;
+  }
+  div#info {
+    font-size: 1.55vmin;
+    line-height: 22.5px;
+  }
+  h4#donate {
+    font-size: 1.6vmin;
+  }
+  div.label {
+    font-size: 2.25vmin;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  ul#changelog {
+    font-size: 1.375vmin;
+  }
+  div#info {
+    font-size: 1.375vmin;
+    line-height: 15px;
+  }
+  h4#donate {
+    font-size: 1.4vmin;
+  }
+  div.label {
+    font-size: 1.475vmin;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1024px) {
+  ul#changelog {
+    font-size: 1.2vmin;
+  }
+  div#info {
+    font-size: 1.2vmin;
+    line-height: 10px;
+  }
+  h4#donate {
+    font-size: 1.25vmin;
+  }
+  div.label {
+    font-size: 1.4vmin;
+  }
+}
+
+p#discord {
+  margin: 15px 0;
+  text-align: center;
 }

@@ -175,9 +175,25 @@ Array.prototype.last = function () {
   return this[this.length - 1];
 };
 
-function setChangeLog(changelog) {
+const changeLogOneSync = [
+  "Added SHOP - '/shop' or HOME key (default) to open",
+  "Added Weapon Tints to SHOP!",
+  "Added 14 new maps (incl. Afghanistan, Area55, Little Seoul)",
+  "Added Queue Passes, Ranks and more at https://beta.gungame.store",
+  "Added crosshair/reticle toggle back - '/nc' to toggle",
+  "Added daily connect reward (500XP) - check status with '/daily'",
+  "Added 20% bonus XP and Money for donators/supporters",
+  "Added force Free Aim targeting mode",
+  "Fixed props spawning before player is ready",
+  "Fixed player sometimes spawning outside of play zone",
+  "Fixed kills and deaths not syncing for winners statistics",
+  "Lots of other performance improvements",
+  "Updated Anti-Cheat and Server Artifacts"
+];
+
+function setChangeLog() {
   const table = document.getElementById("changelog");
-  changelog.forEach(update => {
+  changeLogOneSync.forEach(update => {
     var newNode = document.createElement("LI");
     var text = document.createTextNode(update);
     newNode.appendChild(text);
@@ -186,11 +202,12 @@ function setChangeLog(changelog) {
 }
 
 setTimeout(() => {
-  fetch("https://d0p3t.nl/temp/changelog.json")
-  .then((res) => res.json())
-  .then((out) => setChangeLog(out))
-  .catch((err) => printLog(1, "Could not load changelog"));
-}, 0)
+  setChangeLog();
+  // fetch("https://d0p3t.nl/temp/changelog.json")
+  // .then((res) => res.json())
+  // .then((out) => setChangeLog(out))
+  // .catch((err) => printLog(1, "Could not load changelog"));
+}, 0);
 const handlers = {
   startInitFunction(data) {
     gstate.elems.push({
@@ -369,3 +386,36 @@ if (!window.invokeNative) {
     demoFuncs.length && demoFuncs.shift()();
   }, 350);
 }
+
+
+// var audio = document.getElementById("player");
+// var audioText = document.getElementById("audio-text");
+// var paused = true;
+
+// function initAudio(){
+//   audio.volume = 0.5;
+// }
+
+// initAudio();
+
+// function audioKey(e) {
+//   try {
+//     if(e.keyCode === 32)
+//     {
+//       if(paused)
+//       {
+//         audio.play();
+//         paused = false;
+//         audioText.innerHTML = "Pause";
+//       }
+//       else {
+//         audio.pause();
+//         paused = true;
+//         audioText.innerHTML = "Play";
+//       }
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// document.addEventListener('keypress', audioKey);
