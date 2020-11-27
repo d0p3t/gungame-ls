@@ -28,7 +28,6 @@ function OnPlayButtonClick()
 {
     if(playing)
     {
-        console.log("Pausing");
         playing = false;
         audio.pause();
         playButton.classList.remove("icon-pause-circle");
@@ -36,7 +35,6 @@ function OnPlayButtonClick()
     }
     else
     {
-        console.log("Playing");
         playing = true;
         audio.play();
         playButton.classList.remove("icon-play-circled");

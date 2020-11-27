@@ -176,24 +176,17 @@ Array.prototype.last = function () {
 };
 
 const changeLogOneSync = [
-  "Added SHOP - '/shop' or HOME key (default) to open",
-  "Added Weapon Tints to SHOP!",
-  "Added 14 new maps (incl. Afghanistan, Area55, Little Seoul)",
-  "Added Queue Passes, Ranks and more at https://beta.gungame.store",
-  "Added crosshair/reticle toggle back - '/nc' to toggle",
-  "Added daily connect reward (500XP) - check status with '/daily'",
-  "Added 20% bonus XP and Money for donators/supporters",
-  "Added force Free Aim targeting mode",
-  "Fixed props spawning before player is ready",
-  "Fixed player sometimes spawning outside of play zone",
-  "Fixed kills and deaths not syncing for winners statistics",
-  "Lots of other performance improvements",
-  "Updated Anti-Cheat and Server Artifacts"
+  "Added chat rate limit to combat spam",
+  "Added chat toxicity rules",
+  "Added strict mode to prevent any networked entities from spawning",
+  "Optimized spawning - hopefully less crashes on map start",
+  "Created Tips & Tricks section on this loading screen",
+  "Reduced maps download size by ~20%"
 ];
 
 function setChangeLog() {
   const table = document.getElementById("changelog");
-  changeLogOneSync.forEach(update => {
+  changeLogOneSync.forEach((update) => {
     var newNode = document.createElement("LI");
     var text = document.createTextNode(update);
     newNode.appendChild(text);
@@ -203,11 +196,8 @@ function setChangeLog() {
 
 setTimeout(() => {
   setChangeLog();
-  // fetch("https://d0p3t.nl/temp/changelog.json")
-  // .then((res) => res.json())
-  // .then((out) => setChangeLog(out))
-  // .catch((err) => printLog(1, "Could not load changelog"));
 }, 0);
+
 const handlers = {
   startInitFunction(data) {
     gstate.elems.push({
@@ -306,6 +296,84 @@ window.addEventListener("message", function (e) {
   }
 });
 
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let youtubePlayer = null;
+let youtubeIsReady = false;
+var audioText = document.getElementById("audio-text");
+var paused = true;
+
+function playOrPauseAudio(play) {
+  if (youtubePlayer && youtubeIsReady) {
+    if (play === true) {
+      youtubePlayer.playVideo();
+    } else {
+      youtubePlayer.pauseVideo();
+    }
+  }
+}
+
+function destroyAudio() {
+  if (youtubePlayer) {
+    if (
+      typeof youtubePlayer.stopVideo === "function" &&
+      typeof youtubePlayer.destroy === "function"
+    ) {
+      youtubePlayer.stopVideo();
+      youtubePlayer.destroy();
+      youtubeIsReady = false;
+      youtubePlayer = null;
+    }
+  }
+}
+
+function onYouTubeIframeAPIReady() {
+  youtubeIsReady = false;
+  youtubePlayer = new YT.Player("music", {
+    videoId: "7lDxs0_23s8",
+    origin: window.location.href,
+    enablejsapi: 1,
+    width: "0",
+    height: "0",
+    events: {
+      onReady: function (event) {
+        youtubeIsReady = true;
+        event.target.playVideo();
+        event.target.setVolume(50);
+        setTimeout(() => {
+          event.target.pauseVideo();
+        }, 1);
+      },
+      onStateChange: function (event) {
+        if (event.data == YT.PlayerState.ENDED) {
+        }
+      },
+    },
+  });
+}
+
+function audioKey(e) {
+  try {
+    if (e.keyCode === 32) {
+      if (paused) {
+        playOrPauseAudio(true);
+        paused = false;
+        audioText.innerHTML = "Pause";
+      } else {
+        playOrPauseAudio(false);
+        paused = true;
+        audioText.innerHTML = "Play";
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+document.addEventListener("keypress", audioKey);
+
 if (!window.invokeNative) {
   var newType = function newType(name) {
     return function () {
@@ -386,36 +454,3 @@ if (!window.invokeNative) {
     demoFuncs.length && demoFuncs.shift()();
   }, 350);
 }
-
-
-// var audio = document.getElementById("player");
-// var audioText = document.getElementById("audio-text");
-// var paused = true;
-
-// function initAudio(){
-//   audio.volume = 0.5;
-// }
-
-// initAudio();
-
-// function audioKey(e) {
-//   try {
-//     if(e.keyCode === 32)
-//     {
-//       if(paused)
-//       {
-//         audio.play();
-//         paused = false;
-//         audioText.innerHTML = "Pause";
-//       }
-//       else {
-//         audio.pause();
-//         paused = true;
-//         audioText.innerHTML = "Play";
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// document.addEventListener('keypress', audioKey);

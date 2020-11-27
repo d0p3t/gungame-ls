@@ -35,6 +35,11 @@ body {
   background: #837b63;
 }
 
+#music {
+  width: 0%;
+  height: 0%;
+  z-index: -999;
+}
 #background {
   width: 100%;
   height: 100%;
@@ -89,8 +94,8 @@ body {
 #header-text {
   height: 10vh;
   text-align: center;
-  background-color: #1a1a1a;
-  box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.904) inset, 0 1px 0 #444;
+  background-color: #1a1a1ae3;
   margin-left: 20%;
   margin-right: 20%;
   padding: 2px;
@@ -103,6 +108,7 @@ body {
 #music-toggle {
   position: absolute;
   font-size: 12px;
+  font-weight: bold;
   bottom: 5px;
   left: 0;
   right: 0;
@@ -118,8 +124,8 @@ body {
     height: 50%;
     border-radius: 3px;
     color: white;
-    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
-    background-color: #1a1a1a;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.904) inset, 0 1px 0 #444;
+    background-color: #1a1a1ae3;
     transition: 0.3s;
     overflow-y: auto;
     overflow-x: hidden;
@@ -201,20 +207,20 @@ a:visited {
 .loading-labels div {
   display: none;
   text-align: left;
-  font-size: 20px;
+  font-size: 10px;
   position: relative;
 
   text-shadow:
-    -1px -1px 1px rgba(0, 0, 0, 0.164),
-    1px -1px 1px rgba(0, 0, 0, 0.164),
-    -1px 1px 1px rgba(0, 0, 0, 0.164),
-    1px 1px 1px rgba(0, 0, 0, 0.164); 
+    -1px -1px 1px rgba(0, 0, 0, 0.1),
+    1px -1px 1px rgba(0, 0, 0, 0.1),
+    -1px 1px 1px rgba(0, 0, 0, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.1); 
 }
 
 .loading-bar-container {
   width: 100%;
-  background-color: rgba(140, 140, 140, 0.9);
-  height: 20px;
+  /* background-color: rgba(140, 140, 140, 0.9); */
+  height: 15px;
 
   margin-left: 2px;
   margin-right: 3px;
@@ -222,11 +228,11 @@ a:visited {
   margin-top: 5px;
   margin-bottom: 5px;
 
-  box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
-  background-color: #1a1a1a;
+  /* box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444; */
+  /* background-color: #1a1a1a34; */
 
   border-radius: 6px;
-  padding: 5px;
+  padding: 2px;
   text-align: left;
   overflow: hidden;
   position: relative;
@@ -236,7 +242,7 @@ a:visited {
 
 .loading-bar {
   width: 0%;
-  height: 20px;
+  height: 12px;
   border-radius: 3px;
 
   background-size: 30px 30px;
@@ -293,6 +299,11 @@ a:visited {
 
 .color-fifth {
   color: pink;
+}
+
+.color-sixth {
+  font-weight: bold;
+  color: lightgreen;
 }
 
 @keyframes animate-stripes {
@@ -354,7 +365,7 @@ ul#changelog li {
     font-size: 1.6vmin;
   }
   div.label {
-    font-size: 2.25vmin;
+    font-size: 1.5vmin;
   }
 }
 
@@ -370,7 +381,7 @@ ul#changelog li {
     font-size: 1.4vmin;
   }
   div.label {
-    font-size: 1.475vmin;
+    font-size: 1vmin;
   }
 }
 
@@ -387,7 +398,7 @@ ul#changelog li {
     font-size: 1.25vmin;
   }
   div.label {
-    font-size: 1.4vmin;
+    font-size: 1vmin;
   }
 }
 

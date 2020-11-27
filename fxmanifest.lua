@@ -1,4 +1,4 @@
-fx_version 'adamant'
+fx_version 'cerulean'
 game 'common'
 
 loadscreen_manual_shutdown 'yes'
@@ -7,12 +7,12 @@ files {
   'index.html',
   'css/style.css',
   'img/background2.jpg',
-  'img/outfit.png',
+  'img/new_logo_v.png',
   'js/loa.js',
   'js/main.js',
-  'assets/LucidaSansRegular.ttf',
-  -- 'assets/numb_numb_juice.ogg',
-  -- 'assets/numb_numb_juice.mp3'
+  'assets/LucidaSansRegular.ttf'
 }
+
+--shared_script "@ggac/shared/prot.lua"
 
 loadscreen 'index.html'
