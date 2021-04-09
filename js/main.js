@@ -176,12 +176,14 @@ Array.prototype.last = function () {
 };
 
 const changeLogOneSync = [
-  "Added chat rate limit to combat spam",
-  "Added chat toxicity rules",
-  "Added strict mode to prevent any networked entities from spawning",
-  "Optimized spawning - hopefully less crashes on map start",
-  "Created Tips & Tricks section on this loading screen",
-  "Reduced maps download size by ~20%"
+  "Fixed spawning under the map sometimes",
+  "Fixed 'gameEventTriggered' error spamming the console",
+  "Fixed kill feed showing before spawning",
+  "Fixed (attempt) new players not being frozen on round start",
+  "Removed Pump Shotgun Mk II as it doesn't do damage",
+  "Optimized spawning from the ground up",
+  "Optimized bandwidth of scoreboard",
+  "Anti-Cheat updates",
 ];
 
 function setChangeLog() {
